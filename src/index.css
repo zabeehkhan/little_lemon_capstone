@@ -29,7 +29,7 @@ h2 {
 
 .main-grid {
   display: grid;
-  height: 150vh;
+  /* height: 150vh; */
   grid-template-rows: auto 1fr auto;
 }
 
@@ -55,6 +55,50 @@ nav ul li {
 
 main {
   background-color: white;
+}
+
+.specials-section {
+  padding: 60px 50px 0px 50px;
+  margin-bottom: 30px;
+}
+
+.specials-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.specials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-column-gap: 20px;
+}
+
+.specials-card {
+  width: 100%;
+  background-color: #EDEFEE;
+  display: flex;
+  flex-direction: column;
+}
+
+.specials-card>img {
+  height: 120px;
+  object-fit: cover;
+
+}
+
+.specials-card .card-title {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.card-title>span {
+  color: red;
+}
+
+.specials-card div {
+  flex-grow: 1;
 }
 
 .info-section {
