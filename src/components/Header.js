@@ -1,9 +1,12 @@
 import logo from '../assets/logo.png';
 
+import Nav from '../components/Nav';
+
 function Header() {
     return (
         <header>
-            <img src={logo}></img>
+            <div><img src={logo}></img></div>
+            <Nav></Nav>
         </header>
     );
 }
