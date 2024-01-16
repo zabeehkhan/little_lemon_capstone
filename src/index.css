@@ -3,25 +3,27 @@ body {
 }
 
 .text-green {
-  color: '#495E57';
+  color: #495E57;
 }
 
 .text-yellow {
-  color: '#F4CE14';
+  color: #F4CE14;
+}
+
+.text-white {
+  color: #fff;
 }
 
 h1 {
-  font-size: 64pt;
   font-weight: medium;
 }
 
 h2 {
-  font-size: 40pt;
-  margin-top: 0;
+  margin-top: -15px;
 }
 
 .lead-text {
-  font-size: 18pt;
+  font-size: 0.9rem;
   font-weight: medium;
 }
 
@@ -54,6 +56,37 @@ nav ul li {
 main {
   background-color: white;
 }
+
+.info-section {
+  background-color: #495e57;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-column-gap: 20px;
+  padding: 0px 50px 0px 50px;
+}
+
+.info-image-div {
+  place-self: end;
+}
+
+.info-image-div>img {
+  height: 250px;
+  width: 220px;
+  position: relative;
+  z-index: 10;
+  top: 50px;
+  border-radius: 8px;
+}
+
+
+.yellow-button {
+  background-color: #F4CE14;
+  border: none;
+  border-radius: 8px;
+  padding: 5px;
+}
+
+
 
 footer {
   background-color: #495e57;
