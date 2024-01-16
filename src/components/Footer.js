@@ -1,12 +1,13 @@
-import logo from '../assets/logo.png';
+import logo from '../assets/logo_white.png';
 
 function Footer() {
     return (
         <footer>
-            <div>
-                <img src={logo}></img>
+            <div className='footer-logo'>
+                <img src={logo} alt='Litte Lemon Logo' className='footer-logo'></img>
             </div>
             <div>
+                Site Links
                 <ul>
                     <li>Home</li>
                     <li>About</li>
@@ -18,12 +19,27 @@ function Footer() {
             </div>
             <div>
                 Contact Us
+                <p>
+                    41068 Fremont Blvd. Fremont, CA 94538
+                </p>
+                <p>
+                    (341) 201-5673
+                </p>
+                <p>
+                    info@littlelemon.com
+                </p>
             </div>
 
             <div>
                 Social Media Links
+                <p>
+                    facebook.com/littlelemon
+                </p>
+                <p>
+                    twitter.com/littlelemon
+                </p>
             </div>
-        </footer>
+        </footer >
     );
 }
 

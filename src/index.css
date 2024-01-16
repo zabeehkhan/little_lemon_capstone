@@ -3,7 +3,7 @@ body {
 }
 
 .text-green {
-  color: '#49SE57';
+  color: '#495E57';
 }
 
 .text-yellow {
@@ -52,9 +52,28 @@ nav ul li {
 }
 
 main {
-  background-color: green;
+  background-color: white;
 }
 
 footer {
-  background-color: pink;
+  background-color: #495e57;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-column-gap: 20px;
+  padding: 10px 50px 10px 50px;
+  color: #EDEFEE;
+}
+
+
+footer ul {
+  list-style-type: none;
+  margin-left: -40px;
+}
+
+.footer-logo {
+  place-self: end;
+}
+
+.footer-logo>img {
+  height: 160px;
 }
