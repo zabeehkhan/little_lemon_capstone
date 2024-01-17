@@ -53,6 +53,22 @@ nav ul li {
   font-family: 'Courier New', Courier, monospace;
 }
 
+nav a {
+  text-decoration: none;
+  color: #333333;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+nav a:visited {
+  color: #333333;
+}
+
+nav a:hover {
+  background-color: #333333;
+  color: #EDEFEE;
+}
+
 main {
   background-color: white;
 }
