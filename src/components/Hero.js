@@ -1,7 +1,7 @@
 import foodImage from '../assets/restauranfood.jpg';
 import { Link } from "react-router-dom";
 
-function Hero() {
+function Hero(props) {
     return (
         <section className="info-section">
             <div>
@@ -11,9 +11,9 @@ function Hero() {
                     Little Lemon is a culinary oasis nestled in the heart of Chicago, offering a delightful escape into the flavors of the Mediterranean.
                     Here you are greeted by a warm and inviting atmosphere that reflects the rich cultural tapestry of the region.
                 </p>
-                <Link to="/booking">
+                {props.showButton && <Link to="/booking">
                     <button type='button' className='yellow-button'>Reserve a Table</button>
-                </Link>
+                </Link>}
             </div>
             <div className='info-image-div'>
                 <img src={foodImage} alt="Restaurant Food"></img>

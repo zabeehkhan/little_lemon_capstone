@@ -1,0 +1,18 @@
+input,
+select {
+    background-color: #EDEFEE;
+    height: 1.6rem;
+    font-size: 1.2rem;
+    color: black;
+    border-radius: 8px;
+    border: 2px solid #495E57;
+    margin-top: -10px;
+}
+
+select {
+    height: 1.9rem;
+}
+
+button {
+    height: 1.9rem;
+}

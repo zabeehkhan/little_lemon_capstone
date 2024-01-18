@@ -1,9 +1,9 @@
-import Header from './Header';
-import Footer from './Footer';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
 
-import Hero from './Hero';
-import Specials from './Specials';
-import About from './About';
+import Hero from '../components/Hero';
+import Specials from '../components/Specials';
+import About from '../components/About';
 
 
 function HomePage() {
@@ -11,7 +11,7 @@ function HomePage() {
         <>
             <Header></Header>
             <main>
-                <Hero></Hero>
+                <Hero showButton={true}></Hero>
                 <Specials></Specials>
                 <About></About>
             </main>
