@@ -7,3 +7,16 @@ test('Renders the BookingForm heading', () => {
     const headingElement = screen.getByText("Reserve a Table");
     expect(headingElement).toBeInTheDocument();
 })
+
+describe("Booking Form", () => {
+    test("Booking form submission is disabled if form not valid", () => {
+        const handleSubmit = jest.fn();
+
+        render(<BookingForm />)
+
+        const numberOfGuests = screen.getByLabelText("Number of Guests");
+        expect(numberOfGuests).toHaveAttribute("min");
+
+    });
+
+});

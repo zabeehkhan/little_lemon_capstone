@@ -52,21 +52,21 @@ function BookingForm(props) {
 
             <form onSubmit={handleSubmit} style={{ display: 'grid', maxWidth: '300px', gap: '20px' }} >
                 <label htmlFor="res-date">Choose Date</label>
-                <input type="date" id="res-date" value={formData.date} onChange={handleDate} />
+                <input required type="date" id="res-date" value={formData.date} onChange={handleDate} />
                 <label htmlFor="res-time">Choose Time</label>
-                <select id="res-time" value={formData.time} onChange={handleTime}>
+                <select required id="res-time" value={formData.time} onChange={handleTime}>
                     {props.availableTimes.map(time => {
                         return <option key={time}>{time}</option>
                     })}
                 </select>
                 <label htmlFor="guests">Number of Guests</label>
-                <input type="number" placeholder="1" min="1" max="10" id="guests" value={formData.guests} onChange={handleGuests} />
+                <input required type="number" placeholder="1" min="1" max="10" name="guests" id="guests" value={formData.guests} onChange={handleGuests} />
                 <label htmlFor="occasion">Occasion</label>
-                <select id="occasion" value={formData.occasion} onChange={handleOccasion}>
+                <select required id="occasion" value={formData.occasion} onChange={handleOccasion}>
                     <option>Birthday</option>
                     <option>Anniversary</option>
                 </select>
-                <button className="yellow-button" type="submit">Make Your Reservation</button>
+                <button className="yellow-button" type="submit" aria-label="On Click">Make Your Reservation</button>
             </form >
         </section>
     );
