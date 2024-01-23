@@ -57,6 +57,9 @@ function BookingForm(props) {
                 guests: Number(formData.guests),
                 occasion: formData.occasion
             });
+
+            navigate("/confirmed");
+
         } catch (error) {
             console.error(error);
         }
@@ -66,12 +69,7 @@ function BookingForm(props) {
     const handleSubmit = (e) => {
         e.preventDefault();
 
-        console.log(formData);
         addReservation();
-
-        // if (isConfirmed) {
-        //     navigate("/confirmed");
-        // }
     }
 
     const handleDate = (e) => {
