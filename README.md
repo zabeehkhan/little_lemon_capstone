@@ -1,5 +1,7 @@
 # Little Lemon Capstone Project
 
+You can access the latest live hosted version of this app at: [Firebase Hosted App] (https://little-lemon-capstone.web.app).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
