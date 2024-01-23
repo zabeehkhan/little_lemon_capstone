@@ -2,7 +2,12 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Hero from '../components/Hero';
 
-function ConfirmedBookingPage() {
+import { useEffect } from "react";
+import { useLocation } from 'react-router-dom';
+
+function ConfirmedBookingPage(props) {
+    const { state } = useLocation();
+
     return (
         <>
             <Header></Header>
@@ -12,6 +17,9 @@ function ConfirmedBookingPage() {
                     <div>
                         <h1>Reservation Confirmed</h1>
                         <p>Your table reservation booking has been confirmed.</p>
+                        <p>Your reservation confirmation number is <b>{state.id}</b> and your reservation for {state.guests} guests is booked for {state.date} at {state.time}.</p>
+
+                        <p>We look forward to seeing you soon!</p>
                     </div>
                 </section>
             </main>

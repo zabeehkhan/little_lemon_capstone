@@ -3,12 +3,13 @@ import { useNavigate } from "react-router-dom";
 import { db } from "../config/firebase";
 import * as firestore from "firebase/firestore";
 
+
+const reservationCollectionRef = firestore.collection(db, "reservations");
+const reservationHours = ['4:00', '5:00', '6:00', '7:00', '8:00'];
+
 function BookingForm(props) {
     const navigate = useNavigate();
-    const reservationCollectionRef = firestore.collection(db, "reservations");
 
-
-    const reservationHours = ['4:00', '5:00', '6:00', '7:00', '8:00'];
     const [availableTimes, setAvailableTimes] = useState(reservationHours);
 
     const stateData = {
@@ -22,43 +23,45 @@ function BookingForm(props) {
     const [reservationList, setReservationList] = useState([]);
 
 
-    const getReservationList = async () => {
-        try {
-            // const data = await firestore.getDocs(reservationCollectionRef);
-            const query = firestore.query(reservationCollectionRef, firestore.where("date", "==", formData.date));
-            const data = await firestore.getDocs(query);
-            const reservations = data.docs.map((doc) => ({
-                ...doc.data(),
-                id: doc.id
-            }));
 
-            setReservationList(reservations);
-
-            const bookedTimes = reservations.map(reservation => {
-                return reservation.time;
-            })
-            const filteredTimes = reservationHours.filter(item => !bookedTimes.includes(item));
-            setAvailableTimes(filteredTimes);
-        } catch (error) {
-            console.error(error);
-        }
-    }
 
     useEffect(() => {
-        getReservationList();
+        (async () => {
+            try {
+                const query = firestore.query(reservationCollectionRef, firestore.where("date", "==", formData.date));
+                const data = await firestore.getDocs(query);
+                const reservations = data.docs.map((doc) => ({
+                    ...doc.data(),
+                    id: doc.id
+                }));
+
+                setReservationList(reservations);
+
+                const bookedTimes = reservations.map(reservation => {
+                    return reservation.time;
+                })
+                const filteredTimes = reservationHours.filter(item => !bookedTimes.includes(item));
+                setAvailableTimes(filteredTimes);
+            } catch (error) {
+                console.error(error);
+            }
+        })();
+
     }, [formData.date]);
 
 
     const addReservation = async () => {
         try {
-            await firestore.addDoc(reservationCollectionRef, {
+            const addedDoc = await firestore.addDoc(reservationCollectionRef, {
                 date: formData.date,
                 time: formData.time,
                 guests: Number(formData.guests),
                 occasion: formData.occasion
             });
 
-            navigate("/confirmed");
+            const data = await firestore.getDoc(firestore.doc(reservationCollectionRef, addedDoc.id));
+
+            navigate("/confirmed", { state: { ...data.data(), id: data.id } });
 
         } catch (error) {
             console.error(error);
